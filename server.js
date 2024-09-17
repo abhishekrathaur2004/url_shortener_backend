@@ -7,7 +7,9 @@ import cors from 'cors';
 dotenv.config();
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'https://url-shortener-khaki-tau.vercel.app'
+  }));
 // MongoDB setup
 mongoose.connect(process.env.MONGO_URI);
 const db = mongoose.connection;
@@ -33,7 +35,7 @@ app.post('/shorten', async (req, res) => {
   const url = new Url({ originalUrl, shortId });
   await url.save();
 
-  res.json({ shortUrl: `http://localhost:8000/${shortId}` });
+  res.json({ shortUrl: `https://url-shortener-backend-ka11.onrender.com/${shortId}` });
 });
 
 // Route to handle redirection
