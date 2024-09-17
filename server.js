@@ -50,6 +50,6 @@ app.get('/:shortId', async (req, res) => {
 
 // Start the server
 const PORT = process.env.PORT || 8000;
-app.listen(process.env.PORT, () => {
+app.listen(PORT, () => {
   console.log('Server running at http://localhost:8000');
 });
